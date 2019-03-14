@@ -26,8 +26,8 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:ems="10"
+        android:hint="Set password:"
         android:inputType="textPassword"
-        android:text="Set password:"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,8 +38,8 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:ems="10"
+        android:hint="Confirm password:"
         android:inputType="textPassword"
-        android:text="Confirm password:"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText2" />
 
@@ -50,7 +50,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="1dp"
         android:ems="10"
-        android:inputType="textPassword"
+        android:inputType="textShortMessage|textPassword"
         android:text="Command subscription:"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText3" />

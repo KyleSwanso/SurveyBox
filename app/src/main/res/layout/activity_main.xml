@@ -50,8 +50,8 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="1dp"
         android:ems="10"
-        android:inputType="textShortMessage|textPassword"
-        android:text="Command subscription:"
+        android:hint="Command subscription:"
+        android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText3" />
 

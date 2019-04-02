@@ -10,13 +10,13 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="627dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:elevation="0dp"
         android:text="LOCK"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/editText2"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
@@ -59,17 +59,19 @@
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="12dp"
         android:text="SAVE"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/editText3"
         app:layout_constraintTop_toBottomOf="@+id/button" />
 
     <EditText
         android:id="@+id/editText6"
         android:layout_width="346dp"
         android:layout_height="39dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
         android:inputType="textPersonName"
@@ -94,11 +96,13 @@
         android:layout_width="346dp"
         android:layout_height="39dp"
         android:layout_marginStart="24dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Subscription Three"
         app:layout_constraintBottom_toTopOf="@+id/editText4"
+        app:layout_constraintEnd_toStartOf="@+id/editText9"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -118,11 +122,13 @@
         android:layout_width="346dp"
         android:layout_height="39dp"
         android:layout_marginStart="24dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Subscription Five"
         app:layout_constraintBottom_toTopOf="@+id/editText7"
+        app:layout_constraintEnd_toStartOf="@+id/editText10"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -142,11 +148,13 @@
         android:layout_width="346dp"
         android:layout_height="39dp"
         android:layout_marginStart="24dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="4dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Subscription Seven"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/editText11"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText

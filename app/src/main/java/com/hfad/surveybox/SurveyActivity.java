@@ -67,6 +67,7 @@ public class SurveyActivity extends Activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        /*
         LinearLayout activityLayout = new LinearLayout(this);
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
@@ -103,8 +104,8 @@ public class SurveyActivity extends Activity
 
         mProgress = new ProgressDialog(this);
         mProgress.setMessage("Calling Google Sheets API ...");
-
-        setContentView(activityLayout);
+*/
+        setContentView(R.layout.activity_survey);
 
         // Initialize credentials and service object.
         mCredential = GoogleAccountCredential.usingOAuth2(

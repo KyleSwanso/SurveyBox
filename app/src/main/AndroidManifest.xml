@@ -14,7 +14,9 @@
         <activity android:name=".SettingsActivity"></activity>
         <activity
             android:name=".SurveyActivity"
-            android:label="Google Sheets API Android Quickstart">
+            android:label="UM Survey"
+            android:screenOrientation="landscape"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

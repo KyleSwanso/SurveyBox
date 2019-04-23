@@ -24,12 +24,18 @@
 
     <EditText
         android:id="@+id/editText4"
-        android:layout_width="712dp"
-        android:layout_height="395dp"
+        android:layout_width="665dp"
+        android:layout_height="353dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="THIS IS A TEST FRAGMENT. THIS IS A TEST FRAGMENT!"
-        tools:layout_editor_absoluteX="11dp"
-        tools:layout_editor_absoluteY="7dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

@@ -25,7 +25,7 @@
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         android:numStars="5"
         android:stepSize="1"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
@@ -85,7 +85,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="381dp" />
+        app:layout_constraintGuide_begin="373dp" />
 
     <FrameLayout
         android:id="@+id/frameLayout"

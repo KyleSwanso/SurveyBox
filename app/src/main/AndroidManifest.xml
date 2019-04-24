@@ -11,7 +11,8 @@
         android:icon="@mipmap/ic_launcher"
         android:label="Google Sheets API Android Quickstart"
         android:theme="@style/AppTheme">
-        <activity android:name=".SurveyActivity"
+        <activity
+            android:name=".SurveyActivity"
             android:label="UM Survey"
             android:screenOrientation="landscape">
 

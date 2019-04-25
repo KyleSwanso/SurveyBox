@@ -63,10 +63,11 @@ public class SurveyActivity extends AppCompatActivity
     private Button submitButton;
     private Button trueButton;
     private Button falseButton;
-    private RatingBar ratingBar = (RatingBar) findViewById(R.id.ratingBarID);
+    private RatingBar ratingBar;
     private int submissionCounter;
     private String booleanAnswer = "True";
     private Float ratingAnswer;
+    private String subscriptionString;
 
     /**
      * Create the main activity.
@@ -78,6 +79,10 @@ public class SurveyActivity extends AppCompatActivity
         submissionCounter = 0;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey);
+        ratingBar = (RatingBar) findViewById(R.id.ratingBarID);
+
+        //Bundle extras = getIntent().getExtras();
+        //subscriptionString = extras.getString("subscriptionKey");
 
         /* Google Sheets Example Section, Please do not remove yet.
         mCallApiButton = new Button(this);
@@ -117,6 +122,7 @@ public class SurveyActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(SurveyActivity.this, SettingsActivity.class));
+
             }
         });
 

@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class SettingsActivity extends AppCompatActivity {
-
+    public static final String SUBSCRIPTION_KEY = "com.hfad.SubscriptionKey";
     private EditText subscriptionText;
     private String subscriptionString = "Please set a subscription value.";
     private Button lockButton;
@@ -30,9 +30,8 @@ public class SettingsActivity extends AppCompatActivity {
 
                 //Switch activities and pass string to SurveyActivity.
                 Intent myIntent = new Intent(SettingsActivity.this, SurveyActivity.class);
-                myIntent.putExtra("subscriptionKey", subscriptionString); //Optional parameters
-                SettingsActivity.this.startActivity(myIntent);
-
+                myIntent.putExtra(SUBSCRIPTION_KEY, subscriptionString); //Optional parameters
+                startActivity(myIntent);
                 }
             }
         );

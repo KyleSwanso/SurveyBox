@@ -69,6 +69,7 @@ public class SurveyActivity extends AppCompatActivity
     private Float ratingAnswer;
     private String subscriptionString;
 
+
     /**
      * Create the main activity.
      *
@@ -79,10 +80,25 @@ public class SurveyActivity extends AppCompatActivity
         submissionCounter = 0;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey);
-        ratingBar = (RatingBar) findViewById(R.id.ratingBarID);
+        ratingBar = findViewById(R.id.ratingBarID);
 
-        //Bundle extras = getIntent().getExtras();
-        //subscriptionString = extras.getString("subscriptionKey");
+        //Get subscription string passed from Settings Activity
+        Bundle extras = getIntent().getExtras();
+        subscriptionString = extras.getString(SettingsActivity.SUBSCRIPTION_KEY);
+
+        //Fragments Section
+        Fragment fragment = new SurveyFragment();
+        fragment.setArguments(extras);
+
+        getSupportFragmentManager().
+                beginTransaction().
+                add(R.id.frameLayoutID, fragment).
+                commit();
+
+        //Causes Application CRASH
+        //Create Initial Fragment
+        //Fragment fragment = new SurveyFragment(subscriptionString);
+        //moveToFragment(fragment);
 
         /* Google Sheets Example Section, Please do not remove yet.
         mCallApiButton = new Button(this);
@@ -137,9 +153,11 @@ public class SurveyActivity extends AppCompatActivity
                 //Read Rating Bar
                 ratingAnswer = ratingBar.getRating();
 
+                //TODO Read from Google Sheets
+
                 //Handle Fragments
-                Fragment fragment = new SurveyFragment();
-                moveToFragment(fragment);
+                //Fragment fragment = new SurveyFragment();
+                //moveToFragment(fragment);
             }
         });
 
@@ -369,7 +387,7 @@ public class SurveyActivity extends AppCompatActivity
 
     private void moveToFragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.frameLayout, fragment, fragment.getClass().getSimpleName()).addToBackStack(null).commit();
+                .replace(R.id.frameLayoutID, fragment, fragment.getClass().getSimpleName()).addToBackStack(null).commit();
     }
 
     /**

@@ -17,6 +17,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -42,11 +43,13 @@ import pub.devrel.easypermissions.EasyPermissions;
 
 public class SurveyActivity extends AppCompatActivity
         implements EasyPermissions.PermissionCallbacks {
+    //Google Sheets
     static final int REQUEST_ACCOUNT_PICKER = 1000;
     static final int REQUEST_AUTHORIZATION = 1001;
     static final int REQUEST_GOOGLE_PLAY_SERVICES = 1002;
     static final int REQUEST_PERMISSION_GET_ACCOUNTS = 1003;
 
+    //Google Sheets
     private static final String BUTTON_TEXT = "Call Google Sheets API";
     private static final String PREF_ACCOUNT_NAME = "accountName";
     private static final String[] SCOPES = {SheetsScopes.SPREADSHEETS_READONLY};
@@ -54,11 +57,16 @@ public class SurveyActivity extends AppCompatActivity
     private TextView mOutputText;
     private Button mCallApiButton;
     private ProgressDialog mProgress;
+
+    //UI Buttons and Value holders.
     private Button unlockButton;
     private Button submitButton;
     private Button trueButton;
     private Button falseButton;
+    private RatingBar ratingBar = (RatingBar) findViewById(R.id.ratingBarID);
     private int submissionCounter;
+    private String booleanAnswer = "True";
+    private Float ratingAnswer;
 
     /**
      * Create the main activity.
@@ -128,7 +136,13 @@ public class SurveyActivity extends AppCompatActivity
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Increment counter
                 submissionCounter += 1;
+
+                //Read Rating Bar
+                ratingAnswer = ratingBar.getRating();
+
+                //Handle Fragments
                 Fragment fragment = new SurveyFragment();
                 moveToFragment(fragment);
             }
@@ -139,7 +153,7 @@ public class SurveyActivity extends AppCompatActivity
         trueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //do stuff.
+                booleanAnswer = "True";
             }
         });
 
@@ -148,7 +162,7 @@ public class SurveyActivity extends AppCompatActivity
         falseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //do stuff.
+                booleanAnswer = "False";
             }
         });
     }

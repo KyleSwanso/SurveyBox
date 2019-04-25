@@ -77,19 +77,9 @@ public class SurveyActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         submissionCounter = 0;
         super.onCreate(savedInstanceState);
-        /*
-        LinearLayout activityLayout = new LinearLayout(this);
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT);
-        activityLayout.setLayoutParams(lp);
-        activityLayout.setOrientation(LinearLayout.VERTICAL);
-        activityLayout.setPadding(16, 16, 16, 16);
+        setContentView(R.layout.activity_survey);
 
-        ViewGroup.LayoutParams tlp = new ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT);
-
+        /* Google Sheets Example Section, Please do not remove yet.
         mCallApiButton = new Button(this);
         mCallApiButton.setText(BUTTON_TEXT);
         mCallApiButton.setOnClickListener(new View.OnClickListener() {
@@ -114,8 +104,7 @@ public class SurveyActivity extends AppCompatActivity
 
         mProgress = new ProgressDialog(this);
         mProgress.setMessage("Calling Google Sheets API ...");
-*/
-        setContentView(R.layout.activity_survey);
+        */
 
         // Initialize credentials and service object.
         mCredential = GoogleAccountCredential.usingOAuth2(

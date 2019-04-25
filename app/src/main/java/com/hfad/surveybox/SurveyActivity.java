@@ -56,6 +56,8 @@ public class SurveyActivity extends AppCompatActivity
     private ProgressDialog mProgress;
     private Button unlockButton;
     private Button submitButton;
+    private Button trueButton;
+    private Button falseButton;
     private int submissionCounter;
 
     /**
@@ -113,7 +115,7 @@ public class SurveyActivity extends AppCompatActivity
                 .setBackOff(new ExponentialBackOff());
 
         //Unlock Button Click
-        unlockButton = findViewById(R.id.UnlockButton);
+        unlockButton = findViewById(R.id.unlockButtonID);
         unlockButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -129,6 +131,24 @@ public class SurveyActivity extends AppCompatActivity
                 submissionCounter += 1;
                 Fragment fragment = new SurveyFragment();
                 moveToFragment(fragment);
+            }
+        });
+
+        //True Button Click
+        trueButton = findViewById(R.id.trueButtonID);
+        trueButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //do stuff.
+            }
+        });
+
+        //False Button Click
+        falseButton = findViewById(R.id.falseButtonID);
+        falseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //do stuff.
             }
         });
     }

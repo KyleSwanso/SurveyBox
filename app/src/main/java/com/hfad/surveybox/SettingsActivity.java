@@ -14,13 +14,11 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
 
         Button LockButton = (Button) findViewById(R.id.lockButton);
-
         LockButton.setOnClickListener(new View.OnClickListener() {
-                                          @Override
-                                          public void onClick(View v) {
-                                              startActivity(new Intent(SettingsActivity.this, SurveyActivity.class));
-                                          }
-                                      }
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SettingsActivity.this, SurveyActivity.class)); }
+            }
         );
     }
 }

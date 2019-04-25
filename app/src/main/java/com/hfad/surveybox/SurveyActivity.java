@@ -46,6 +46,7 @@ public class SurveyActivity extends AppCompatActivity
     static final int REQUEST_AUTHORIZATION = 1001;
     static final int REQUEST_GOOGLE_PLAY_SERVICES = 1002;
     static final int REQUEST_PERMISSION_GET_ACCOUNTS = 1003;
+
     private static final String BUTTON_TEXT = "Call Google Sheets API";
     private static final String PREF_ACCOUNT_NAME = "accountName";
     private static final String[] SCOPES = {SheetsScopes.SPREADSHEETS_READONLY};
@@ -54,6 +55,8 @@ public class SurveyActivity extends AppCompatActivity
     private Button mCallApiButton;
     private ProgressDialog mProgress;
     private Button unlockButton;
+    private Button submitButton;
+    private int submissionCounter;
 
     /**
      * Create the main activity.
@@ -62,6 +65,7 @@ public class SurveyActivity extends AppCompatActivity
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        submissionCounter = 0;
         super.onCreate(savedInstanceState);
         /*
         LinearLayout activityLayout = new LinearLayout(this);
@@ -108,10 +112,21 @@ public class SurveyActivity extends AppCompatActivity
                 getApplicationContext(), Arrays.asList(SCOPES))
                 .setBackOff(new ExponentialBackOff());
 
+        //Unlock Button Click
         unlockButton = findViewById(R.id.UnlockButton);
         unlockButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startActivity(new Intent(SurveyActivity.this, SettingsActivity.class));
+            }
+        });
+
+        //Submit Button Click
+        submitButton = findViewById(R.id.submitButtonID);
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                submissionCounter += 1;
                 Fragment fragment = new SurveyFragment();
                 moveToFragment(fragment);
             }

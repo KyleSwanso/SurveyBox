@@ -24,17 +24,19 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
         android:numStars="5"
         android:stepSize="1"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
-        app:layout_constraintEnd_toStartOf="@+id/button6"
+        app:layout_constraintEnd_toStartOf="@+id/falseButtonID"
         app:layout_constraintHorizontal_bias="0.528"
-        app:layout_constraintStart_toEndOf="@+id/button5" />
+        app:layout_constraintStart_toEndOf="@+id/trueButtonID"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/submitButtonID"
         android:layout_width="110dp"
         android:layout_height="110dp"
         android:layout_marginEnd="8dp"
@@ -47,7 +49,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/trueButtonID"
         android:layout_width="110dp"
         android:layout_height="110dp"
         android:layout_marginStart="16dp"
@@ -60,7 +62,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/falseButtonID"
         android:layout_width="110dp"
         android:layout_height="110dp"
         android:layout_marginEnd="24dp"
@@ -70,7 +72,7 @@
         android:focusable="true"
         android:text="@string/False"
         app:layout_constraintBottom_toTopOf="@+id/barrier2"
-        app:layout_constraintEnd_toStartOf="@+id/button2" />
+        app:layout_constraintEnd_toStartOf="@+id/submitButtonID" />
 
     <android.support.constraint.Barrier
         android:id="@+id/barrier2"
@@ -85,7 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="373dp" />
+        app:layout_constraintGuide_begin="357dp" />
 
     <FrameLayout
         android:id="@+id/frameLayout"
@@ -95,7 +97,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/button6"
+        app:layout_constraintBottom_toTopOf="@+id/falseButtonID"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2"

@@ -127,13 +127,13 @@ public class SurveyActivity extends AppCompatActivity
 
                 //TODO Read from Google Sheets
                 getResultsFromApi();
-                questionList = TextUtils.split(",", questionsRetrieved);
+                //questionList = TextUtils.split(",", questionsRetrieved);
 
 
                 //TODO Replace fragment with new Fragment
                 SurveyFragment newFragment = new SurveyFragment();
                 Bundle args = new Bundle();
-                args.putString(SettingsActivity.SUBSCRIPTION_KEY, questionList[submissionCounter]);
+                args.putString(SettingsActivity.SUBSCRIPTION_KEY, questionsRetrieved);
                 newFragment.setArguments(args);
 
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -181,7 +181,7 @@ public class SurveyActivity extends AppCompatActivity
         } else if (mCredential.getSelectedAccountName() == null) {
             chooseAccount();
         } else if (!isDeviceOnline()) {
-            mOutputText.setText("No network connection available.");
+            //mOutputText.setText("No network connection available.");
         } else {
             new MakeRequestTask(mCredential).execute();
         }

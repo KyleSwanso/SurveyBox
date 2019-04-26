@@ -59,6 +59,7 @@ public class SurveyActivity extends AppCompatActivity
     private Button mCallApiButton;
     private ProgressDialog mProgress;
     private String questionsRetrieved;
+    private String[] questionList;
 
     //UI Buttons and Value holders.
     private Button unlockButton;
@@ -98,33 +99,6 @@ public class SurveyActivity extends AppCompatActivity
                 commit();
 
 
-        /* Google Sheets Example Section, Please do not remove yet.
-        mCallApiButton = new Button(this);
-        mCallApiButton.setText(BUTTON_TEXT);
-        mCallApiButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mCallApiButton.setEnabled(false);
-                mOutputText.setText("");
-                getResultsFromApi();
-                mCallApiButton.setEnabled(true);
-            }
-        });
-        activityLayout.addView(mCallApiButton);
-
-        mOutputText = new TextView(this);
-        mOutputText.setLayoutParams(tlp);
-        mOutputText.setPadding(16, 16, 16, 16);
-        mOutputText.setVerticalScrollBarEnabled(true);
-        mOutputText.setMovementMethod(new ScrollingMovementMethod());
-        mOutputText.setText(
-                "Click the \'" + BUTTON_TEXT +"\' button to test the API.");
-        activityLayout.addView(mOutputText);
-
-        mProgress = new ProgressDialog(this);
-        mProgress.setMessage("Calling Google Sheets API ...");
-        */
-
         // Initialize credentials and service object.
         mCredential = GoogleAccountCredential.usingOAuth2(
                 getApplicationContext(), Arrays.asList(SCOPES))
@@ -153,13 +127,13 @@ public class SurveyActivity extends AppCompatActivity
 
                 //TODO Read from Google Sheets
                 getResultsFromApi();
-
+                questionList = TextUtils.split(",", questionsRetrieved);
 
 
                 //TODO Replace fragment with new Fragment
                 SurveyFragment newFragment = new SurveyFragment();
                 Bundle args = new Bundle();
-                args.putString(SettingsActivity.SUBSCRIPTION_KEY, questionsRetrieved);
+                args.putString(SettingsActivity.SUBSCRIPTION_KEY, questionList[submissionCounter]);
                 newFragment.setArguments(args);
 
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();

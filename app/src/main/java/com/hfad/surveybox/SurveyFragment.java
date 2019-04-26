@@ -11,8 +11,6 @@ public class SurveyFragment extends Fragment {
     private TextView questionText;
 
     public SurveyFragment() {
-        //TextView questionView = (TextView) getView().findViewById(R.id.questionTextID);
-
 
     }
 
@@ -21,10 +19,10 @@ public class SurveyFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_survey, container, false);
 
         Bundle bundle = getArguments();
-        String questionString = bundle.getString(SettingsActivity.SUBSCRIPTION_KEY);
+        String subscriptionString = bundle.getString(SettingsActivity.SUBSCRIPTION_KEY);
 
         questionText = view.findViewById(R.id.questionTextID);
-        questionText.setText(questionString);
+        questionText.setText(subscriptionString);
         return view;
     }
 

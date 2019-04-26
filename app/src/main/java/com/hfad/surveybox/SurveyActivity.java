@@ -13,6 +13,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
@@ -95,10 +96,6 @@ public class SurveyActivity extends AppCompatActivity
                 add(R.id.frameLayoutID, fragment).
                 commit();
 
-        //Causes Application CRASH
-        //Create Initial Fragment
-        //Fragment fragment = new SurveyFragment(subscriptionString);
-        //moveToFragment(fragment);
 
         /* Google Sheets Example Section, Please do not remove yet.
         mCallApiButton = new Button(this);
@@ -155,9 +152,23 @@ public class SurveyActivity extends AppCompatActivity
 
                 //TODO Read from Google Sheets
 
-                //Handle Fragments
-                //Fragment fragment = new SurveyFragment();
-                //moveToFragment(fragment);
+
+
+                //TODO Replace fragment with new Fragment
+                SurveyFragment newFragment = new SurveyFragment();
+                Bundle args = new Bundle();
+                args.putString(SettingsActivity.SUBSCRIPTION_KEY, "new Fragment String Testing Test");
+                newFragment.setArguments(args);
+
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+                // Replace whatever is in the fragment_container view with this fragment,
+                // and add the transaction to the back stack so the user can navigate back
+                transaction.replace(R.id.frameLayoutID, newFragment);
+                transaction.addToBackStack(null);
+
+                // Commit the transaction
+                transaction.commit();
             }
         });
 

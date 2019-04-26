@@ -17,14 +17,13 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-        subscriptionText = (EditText)findViewById(R.id.subscriptionTextID);
-        lockButton = (Button) findViewById(R.id.lockButtonID);
 
+        subscriptionText = (EditText)findViewById(R.id.subscriptionTextID);
+
+        lockButton = (Button) findViewById(R.id.lockButtonID);
         lockButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //startActivity(new Intent(SettingsActivity.this, SurveyActivity.class));
-
                 //Store contents of subscription text field in subscriptionString variable as string.
                 subscriptionString = subscriptionText.getText().toString();
 

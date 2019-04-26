@@ -58,6 +58,7 @@ public class SurveyActivity extends AppCompatActivity
     private TextView mOutputText;
     private Button mCallApiButton;
     private ProgressDialog mProgress;
+    private String questionsRetrieved;
 
     //UI Buttons and Value holders.
     private Button unlockButton;
@@ -151,13 +152,14 @@ public class SurveyActivity extends AppCompatActivity
                 ratingAnswer = ratingBar.getRating();
 
                 //TODO Read from Google Sheets
+                getResultsFromApi();
 
 
 
                 //TODO Replace fragment with new Fragment
                 SurveyFragment newFragment = new SurveyFragment();
                 Bundle args = new Bundle();
-                args.putString(SettingsActivity.SUBSCRIPTION_KEY, "new Fragment String Testing Test");
+                args.putString(SettingsActivity.SUBSCRIPTION_KEY, questionsRetrieved);
                 newFragment.setArguments(args);
 
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -414,7 +416,6 @@ public class SurveyActivity extends AppCompatActivity
             JsonFactory jsonFactory = JacksonFactory.getDefaultInstance();
             mService = new com.google.api.services.sheets.v4.Sheets.Builder(
                     transport, jsonFactory, credential)
-                    .setApplicationName("Google Sheets API Android Quickstart")
                     .build();
         }
 
@@ -461,24 +462,25 @@ public class SurveyActivity extends AppCompatActivity
 
         @Override
         protected void onPreExecute() {
-            mOutputText.setText("");
-            mProgress.show();
+            //mOutputText.setText("");
+            //mProgress.show();
         }
 
         @Override
         protected void onPostExecute(List<String> output) {
-            mProgress.hide();
+            //mProgress.hide();
             if (output == null || output.size() == 0) {
-                mOutputText.setText("No results returned.");
+                //mOutputText.setText("No results returned.");
             } else {
-                output.add(0, "Data retrieved using the Google Sheets API:");
-                mOutputText.setText(TextUtils.join("\n", output));
+                //output.add(0, "Data retrieved using the Google Sheets API:");
+                //mOutputText.setText(TextUtils.join("\n", output));
+                questionsRetrieved = TextUtils.join("\n", output);
             }
         }
 
         @Override
         protected void onCancelled() {
-            mProgress.hide();
+            //mProgress.hide();
             if (mLastError != null) {
                 if (mLastError instanceof GooglePlayServicesAvailabilityIOException) {
                     showGooglePlayServicesAvailabilityErrorDialog(
@@ -489,11 +491,11 @@ public class SurveyActivity extends AppCompatActivity
                             ((UserRecoverableAuthIOException) mLastError).getIntent(),
                             SurveyActivity.REQUEST_AUTHORIZATION);
                 } else {
-                    mOutputText.setText("The following error occurred:\n"
-                            + mLastError.getMessage());
+                    //mOutputText.setText("The following error occurred:\n"
+                            //+ mLastError.getMessage());
                 }
             } else {
-                mOutputText.setText("Request cancelled.");
+                //mOutputText.setText("Request cancelled.");
             }
         }
     }

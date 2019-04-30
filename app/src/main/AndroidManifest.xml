@@ -10,15 +10,23 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="Google Sheets API Android Quickstart"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".SurveyActivity"
-            android:label="Google Sheets API Android Quickstart" >
+            android:label="UM Survey"
+            android:screenOrientation="landscape">
+
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="UM Survey"
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
+
 </manifest>
